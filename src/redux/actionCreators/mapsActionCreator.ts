@@ -2,14 +2,16 @@ import * as actions from '../actionTypes/mapsActionTypes'
 import { Suggestion } from 'react-places-autocomplete'
 import { AxiosError } from 'axios'
 
-export function getPlaces(input: Suggestion | null): actions.GetPlacesAction {
+export function getCoordinates(
+    input: Suggestion | null
+): actions.GetCoordinatesAction {
     return {
         type: actions.GET_COORDINATES,
         input,
     }
 }
 
-export function getCoordinatesRequest(): actions.GetPlacesRequestAction {
+export function getCoordinatesRequest(): actions.GetCoordinatesRequestAction {
     return {
         type: actions.GET_COORDINATES_REQUEST,
     }

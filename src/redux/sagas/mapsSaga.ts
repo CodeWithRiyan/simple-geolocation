@@ -3,7 +3,7 @@ import { fetchPlaces } from '../services/index'
 import * as actionCreators from '../actionCreators/mapsActionCreator'
 import * as actionTypes from '../actionTypes/mapsActionTypes'
 
-function* onLoadPlaces({ input }: actionTypes.GetPlacesAction) {
+function* onLoadCoordinates({ input }: actionTypes.GetCoordinatesAction) {
     try {
         yield put(actionCreators.getCoordinatesRequest())
         const { data } = yield call(fetchPlaces, input)
@@ -13,10 +13,10 @@ function* onLoadPlaces({ input }: actionTypes.GetPlacesAction) {
     }
 }
 
-function* watchOnLoadPlaces() {
-    yield takeEvery(actionTypes.GET_COORDINATES, onLoadPlaces)
+function* watchOnLoadCoordinates() {
+    yield takeEvery(actionTypes.GET_COORDINATES, onLoadCoordinates)
 }
 
 export default function* mapsSaga() {
-    yield all([fork(watchOnLoadPlaces)])
+    yield all([fork(watchOnLoadCoordinates)])
 }

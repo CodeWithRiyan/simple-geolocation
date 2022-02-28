@@ -1,13 +1,13 @@
 import { Suggestion } from 'react-places-autocomplete'
 
 export const GET_COORDINATES = 'mapsActionTypes/GET_COORDINATES'
-export interface GetPlacesAction {
+export interface GetCoordinatesAction {
     type: typeof GET_COORDINATES
     input: Suggestion | null
 }
 
 export const GET_COORDINATES_REQUEST = 'mapsActionTypes/GET_COORDINATES_REQUEST'
-export interface GetPlacesRequestAction {
+export interface GetCoordinatesRequestAction {
     type: typeof GET_COORDINATES_REQUEST
 }
 
@@ -27,7 +27,7 @@ export interface GetCoordinatesFailureAction {
 }
 
 export type CoordinatesAction =
-    | GetPlacesAction
-    | GetPlacesRequestAction
+    | GetCoordinatesAction
+    | GetCoordinatesRequestAction
     | GetCoordinatesSuccessAction
     | GetCoordinatesFailureAction
